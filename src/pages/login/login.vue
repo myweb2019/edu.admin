@@ -51,11 +51,8 @@
 <script lang="ts">
 import { defineComponent, reactive, ref, toRefs, onMounted } from "vue";
 import { DataType } from "./login";
-
 import { Http } from '../../api/http'
 import { useRouter } from "vue-router";
-
-
 export default defineComponent({
     name: "Login",
     setup() {
@@ -102,8 +99,11 @@ export default defineComponent({
             _that.ruleForm.validate((valid: boolean) => {
                 if (!valid) return;
                 Http.login(_that.form).then(res => {
+                    console.log(res);
                     localStorage.setItem('ACCESS_TOKEN', res.data.access_token);
-                    router.push('/index')
+                    setTimeout(()=>{
+                        router.push('/index')
+                    },200)
                 }).catch(error => {
                     getCodeUrl();
                 })
@@ -119,6 +119,8 @@ export default defineComponent({
 
         const refreshCode = () => {
             getCodeUrl();
+            console.log();
+            
         }
 
         onMounted(() => {

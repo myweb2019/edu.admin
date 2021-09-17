@@ -1,3 +1,4 @@
+
 /**
  * 如果要配置测试环境，同下
  */
@@ -13,7 +14,8 @@ const devConfig = {
     // 启动服务配置 https://cn.vitejs.dev/config/#server-options
     server: {
         // 指定服务器应该监听哪个 IP 地址
-        host: '127.0.0.1',
+        // host: '127.0.0.1',
+        host: '0.0.0.0',
         // 指定开发服务器端口
         port: '3000',
         // 若端口已被占是否会直接退出

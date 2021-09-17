@@ -1,6 +1,5 @@
-import { Request } from '../plugins/request';
-import { LoginParams } from './index'
-
+import { Request } from '../utils/request';
+import { LoginParams, UserlistParams } from './index'
 export class Http {
 
     private static request: Request = new Request();
@@ -9,11 +8,12 @@ export class Http {
         return this.request.get('/getcode')
     }
 
-    public static login(parmas: LoginParams): Promise<any> {
-        return this.request.post('/login', parmas)
+    public static login(params: LoginParams): Promise<any> {
+        return this.request.post('/login', params)
     }
 
-    public static getUserlist(): Promise<any> {
-        return this.request.get('/userlist')
+    public static getUserlist(params: UserlistParams): Promise<any> {
+        return this.request.post('/userlist', params)
     }
+
 }

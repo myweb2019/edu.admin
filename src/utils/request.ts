@@ -1,11 +1,9 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { ElMessage } from 'element-plus';
-import { useRouter, Router } from 'vue-router';
-const ENV = import.meta.env;
 
+const ENV = import.meta.env;
 export class Request {
-    public static axiosInstance: AxiosInstance;
-    private static router: Router = useRouter();
+    protected static axiosInstance: AxiosInstance;
 
     public static init() {
         // 创建axios实例
@@ -76,13 +74,10 @@ export class Request {
      * @param res 响应回调,根据不同响应进行不同操作
      */
     private static errorHandle(res: any) {
-        // 状态码判断
         switch (res.status) {
             case 401:
                 ElMessage.error('登录失效，请重新登录');
-                this.router.replace({
-                    path: '/login',
-                })
+                location.replace('/login')
                 break;
             case 403:
                 ElMessage.error('无权限访问');
@@ -92,6 +87,8 @@ export class Request {
                 break;
             case 422:
                 ElMessage.error(res.data.msg);
+                localStorage.removeItem('ACCESS_TOKEN')
+                location.replace('/login')
                 break;
             default:
                 ElMessage.error('接口错误');

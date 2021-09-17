@@ -3,14 +3,22 @@ import { App } from 'vue';
 // 引入element-plus组件
 import {
     ElButton,
-    ElLoading,
-    ElMessage,
-    ElMessageBox,
-    ElNotification,
     ElForm,
     ElFormItem,
     ElInput,
     ElIcon,
+    ElContainer,
+    ElHeader,
+    ElMain,
+    ElAside,
+    ElDropdown,
+    ElDropdownItem,
+    ElDropdownMenu,
+    ElTable,
+    ElTableColumn,
+    ElCard,
+    ElTag,
+    ElButtonGroup
 } from 'element-plus'
 
 
@@ -20,10 +28,18 @@ const elements: Array<any> = [
     ElFormItem,
     ElInput,
     ElIcon,
-    ElLoading,
-    ElMessage,
-    ElMessageBox,
-    ElNotification,
+    ElContainer,
+    ElHeader,
+    ElMain,
+    ElAside,
+    ElDropdown,
+    ElDropdownItem,
+    ElDropdownMenu,
+    ElTable,
+    ElTableColumn,
+    ElCard,
+    ElTag,
+    ElButtonGroup
 ]
 
 export default {
